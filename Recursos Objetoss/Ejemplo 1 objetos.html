@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Manejo Objetos</title>
+    <style>
+        body{
+            background-color: burlywood;
+            font-style: oblique;
+        }
+        table{
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>EJEMPLO DE MANIPULACIÓN DE OBJETOS</h1>
+        <hr size="30" color="blue">
+        <br>
+        <table border="5">
+            <th>Cédula</th><th>Nombre</th><th>Apellido</th>
+            <tbody id="cuerpo"></tbody>
+        </table>
+    </center>
+    <script>
+        var salida='';
+        var usuario = {
+            nombre : "Pedro",
+            apellido :"Martínez",
+            cedula : 1405678
+        }
+        console.log(usuario);
+        salida+='<tr><td>'+ usuario.cedula+'</td><td>'+usuario.nombre+'</td><td>'+usuario.apellido+'</td></tr>';
+        document.getElementById('cuerpo').innerHTML=salida;
+    </script>
+</body>
+</html>

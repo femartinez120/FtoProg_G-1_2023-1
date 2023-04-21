@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <br>
+    <center>
+        <h1>Lista de Nombre Digitados</h1>
+        <hr noshade="noshade" size="3" color="green" width="50%">
+        <br>
+        <table border="3">
+            <th>Nombres</th>
+            <tbody id="cuerpo"></tbody>
+
+        </table>
+    </center>
+    <script>
+        var salida='';
+        var cont=0;
+        var nom=prompt('DIGITE UNO O MÁS NOMBRES: ','');
+        while(nom!=''){
+            cont++;
+            salida+='<tr><td>'+nom+'</td></tr>';
+            nom=prompt('DIGITE UNO O MÁS NOMBRES: ','');
+        }
+        salida+='<tr><td>Total Nombre Digitados: '+cont+'</td></tr>';
+        document.getElementById('cuerpo').innerHTML=salida;
+    </script>
+</body>
+</html>

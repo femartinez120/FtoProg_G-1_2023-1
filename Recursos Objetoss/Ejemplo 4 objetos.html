@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Manejo Objetos</title>
+    <style>
+        body{
+            background-color: burlywood;
+            font-style: oblique;
+        }
+        table{
+            background-color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>EJEEMPLO DE MANIPULACIÓN DE OBJETOS</h1>
+        <hr size="30" color="blue">
+        <br>
+        <table border="5">
+            <th>DESCRIPCIÓN</th><th>DATO</th>
+            <tbody>
+                <tr><td>Cédula</td><td><input type="text" id="ced" name="ced" placeholder="Digite Cédula"></td></tr>
+                <tr><td>Nombres</td><td><input type="text" id="nom" name="nom" placeholder="Digite Nombres"></td></tr>
+                <tr><td>Nombres</td><td><input type="text" id="ape" name="ape" placeholder="Digite Apellidos"></td></tr>
+            </tbody>
+        </table>
+        <table border="5">
+            <tr><td><button onclick="agregar()">AGREGAR</button></td></tr>
+        </table>
+        <h1>LISTADO DE PERSONAS</h1>
+        <br>
+        <table border="5">
+            <th>Cédula</th><th>Nombre</th><th>Apellido</th>
+            <tbody id="cuerpo"></tbody>
+        </table>
+    </center>
+    <script>
+        var salida='';
+        function agregar(){
+        var usuario= Object();
+            usuario.cedula=document.getElementById('ced').value;
+            usuario.nombre=document.getElementById('nom').value;
+            usuario.apellido=document.getElementById('ape').value;
+            salida+='<tr><td>'+ usuario.cedula+'</td><td>'+usuario.nombre+'</td><td>'+usuario.apellido+'</td></tr>';
+            document.getElementById('cuerpo').innerHTML=salida;
+            limpiarCajaTexto();
+        }
+        function limpiarCajaTexto(){
+            document.getElementById('ced').value='';
+            document.getElementById('nom').value='';
+            document.getElementById('ape').value='';
+            document.getElementById('ced').focus();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <br>
+        <h1>CAPTURA DE NOMBRES</h1>
+        <br>
+        <table border="3">
+            <th>propiedad</th>
+            <th>DATO</th>
+            <tbody>
+                <tr>
+                    <td>nombres:</td>
+                    <td><input type="text" id="nom"></td>
+                </tr>
+                <tr>
+                    <td>Año Nacimiento:</td>
+                    <td><input type="text" id="aNac"></td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <button onclick="agregar()">agregar</button>
+        <br>
+        <hr noshade="noshade" size="3" color="green" width="70%">
+        <br>
+        <h1>Listado de Estudiantes</h1>
+        <br>
+        <table border="3">
+            <th>Nombres</th>
+            <th>Año Nacimiento</th>
+            <th>Edad</th>
+            <th>Mayor/Menor de Edad</th>
+            <th>Numero Letras A,a </th>
+            <tbody id="cuerpo">
+            </tbody>
+        </table>
+    </center>
+    <script>
+        var salida='';
+        function agregar(){
+            var nombre=document.getElementById('nom').value;
+            var aNac=parseInt(document.getElementById('aNac').value);
+            salida+= '<tr><td>'+colorLetra(nombre)
+                +'</td><td>'+aNac
+                +'</td><td>'+calcularEdad(aNac)
+                +'</td><td>'+verificarEdad(calcularEdad(aNac))
+                +'</td><td>'+contarLetraA(nombre)+'</td></tr>' ;//salida=salida+ '<tr> <td>'+nombre+'</td> </tr>';
+            document.getElementById('cuerpo').innerHTML=salida;
+            limpiarCajas();
+        }
+        function limpiarCajas(){
+            document.getElementById('nom').value='';
+            document.getElementById('aNac').value='';
+            document.getElementById('nom').focus();
+        }
+        function calcularEdad(edad){
+            return (2023-edad);
+        }
+        function verificarEdad(edad){
+            if(edad>=18){
+                return "Es Mayor de Edad";
+            }else{
+                return "Es Menor de Edad"; 
+            }
+        }
+        function contarLetraA(nom){
+            var contA=0;
+            var contE=0;
+            var contI=0;
+            var contO=0;
+            var contU=0;
+            for(i in nom){
+                console.log(nom[i]);
+                if((nom[i]=='A') || (nom[i]=='a')){
+                   contA++; 
+                }
+                /* switch (nom[i]){
+                    case 'A','a':contA++;break;
+                    case 'E','e':contE++;break;
+                    case 'I','i':contI++;break;
+                    case 'O','o':contO++;break;
+                    case 'U','u':contU++;break;
+                } */
+            }
+            return contA;
+        }
+        function colorLetra(nombre){
+            var nom1='';
+            for(i in nombre){
+                if((nombre[i]=='A') || (nombre[i]=='a')){
+                   nom1+='<b><font color="red" size="20px">'+nombre[i]+'</font></b>';
+                }
+                else{
+                    if((nombre[i]=='E') || (nombre[i]=='e')){
+                   nom1+='<b><font color="blue" size="20px">'+nombre[i]+'</font></b>';
+                }
+                else
+                    nom1+=nombre[i];
+                }
+            }
+            return nom1;
+        }
+
+    </script>
+
+</body>
+</html>
